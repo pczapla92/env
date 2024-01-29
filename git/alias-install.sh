@@ -1,0 +1,5 @@
+git config --global alias.st 'status -s'
+git config --global alias.aadd 'add .'
+git config --global alias.acommit 'commit -am'
+git config --global alias.cleanup 'reset @ --hard'
+git config --global alias.undo 'restore --staged --worktree --source=HEAD'

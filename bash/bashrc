@@ -1,0 +1,91 @@
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias d="cd ~/Downloads"
+alias p="cd ~/Documents/projects"
+alias t="cd /tmp/"
+
+alias g="git"
+alias gc="git checkout"
+alias gcb="git checkout -b"
+alias gb="git branch"
+alias gp="git fetch -a -p && git pull"
+alias gl="git log --oneline -n"
+alias gll="git log --oneline -n 1"
+
+alias kl="kubectl"
+
+alias watch="watch -t"
+alias watch1="watch -t -n 1"
+
+alias igrep="grep -i"
+
+alias bashrc="vi ~/.bashrc"
+
+alias dcu="docker compose up -d"
+alias dcd="docker compose down"
+alias dp="docker ps"
+alias dl="docker logs"
+
+# python venv start
+venvreset() {
+  local reqfile="${1:-requirements.txt}"
+
+  # Deactivate the environment if it's active
+  if [[ -n "$VIRTUAL_ENV" ]]; then
+    deactivate
+    echo "Deactivated current virtual environment"
+  fi
+
+  # Remove existing .venv if it exists
+  if [[ -d ".venv" ]]; then
+    rm -rf .venv
+    echo "Removed existing .venv"
+  fi
+
+  # Create and activate a new .venv
+  python3 -m venv .venv
+  source .venv/bin/activate
+  echo "Created and activated new .venv"
+
+  # Install dependencies if the requirements file exists
+  if [[ -f "$reqfile" ]]; then
+    pip install --upgrade pip
+    pip install -r "$reqfile"
+    echo "Dependencies installed from '$reqfile'"
+  else
+    echo "Requirements file '$reqfile' not found. Skipping install."
+  fi
+}
+
+venvstart() {
+  if [ ! -d ".venv" ]; then
+    python3 -m venv .venv
+    echo "Created new .venv"
+  fi
+  source .venv/bin/activate
+  echo "Activated .venv"
+}
+
+venvstop() {
+  if [[ -n "$VIRTUAL_ENV" ]]; then
+    deactivate
+    echo "Deactivated virtual environment"
+  else
+    echo "No virtual environment is currently active"
+  fi
+}
+
+venvinit() {
+  local reqfile="${1:-requirements.txt}"
+  if [ ! -f "$reqfile" ]; then
+    echo "Requirements file '$reqfile' not found."
+    return 1
+  fi
+  venvstart
+  pip install --upgrade pip
+  pip install -r "$reqfile"
+  echo "Dependencies installed from '$reqfile'"
+}
+# python venv stop
