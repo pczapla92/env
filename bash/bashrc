@@ -38,16 +38,16 @@ venvreset() {
     echo "Deactivated current virtual environment"
   fi
 
-  # Remove existing .venv if it exists
-  if [[ -d ".venv" ]]; then
-    rm -rf .venv
-    echo "Removed existing .venv"
+  # Remove existing venv if it exists
+  if [[ -d "venv" ]]; then
+    rm -rf venv
+    echo "Removed existing venv"
   fi
 
-  # Create and activate a new .venv
-  python3 -m venv .venv
-  source .venv/bin/activate
-  echo "Created and activated new .venv"
+  # Create and activate a new venv
+  python3 -m venv venv
+  source venv/bin/activate
+  echo "Created and activated new venv"
 
   # Install dependencies if the requirements file exists
   if [[ -f "$reqfile" ]]; then
@@ -60,12 +60,12 @@ venvreset() {
 }
 
 venvstart() {
-  if [ ! -d ".venv" ]; then
-    python3 -m venv .venv
-    echo "Created new .venv"
+  if [ ! -d "venv" ]; then
+    python3 -m venv venv
+    echo "Created new venv"
   fi
-  source .venv/bin/activate
-  echo "Activated .venv"
+  source venv/bin/activate
+  echo "Activated venv"
 }
 
 venvstop() {
