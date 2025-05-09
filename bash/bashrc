@@ -13,6 +13,7 @@ alias gb="git branch"
 alias gp="git fetch -a -p && git pull"
 alias gl="git log --oneline -n"
 alias gll="git log --oneline -n 1"
+alias grm="git rebase master"
 
 alias kl="kubectl"
 
