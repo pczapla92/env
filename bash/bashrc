@@ -11,8 +11,8 @@ alias gc="git checkout"
 alias gcb="git checkout -b"
 alias gb="git branch"
 alias gp="git fetch -a -p && git pull"
-alias gl="git log --oneline -n"
-alias gll="git log --oneline -n 1"
+alias gl='git log --pretty=format:"%H | %ad | %s | %an" --date=format:"%Y-%m-%d %H:%M" -n'
+alias gll='git log --pretty=format:"%H | %ad | %s | %an" --date=format:"%Y-%m-%d %H:%M" -n 1'
 alias grm="git rebase master"
 
 alias kl="kubectl"
