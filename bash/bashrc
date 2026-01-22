@@ -30,6 +30,13 @@ alias dcd="docker compose down"
 alias dp="docker ps"
 alias dl="docker logs"
 
+alias sarcpu='sar -u -f /var/log/sysstat/sa$(date +%d)'
+alias sarmem='sar -r -f /var/log/sysstat/sa$(date +%d)'
+alias sarswap='sar -S -f /var/log/sysstat/sa$(date +%d)'
+alias sardisk='sar -d -f /var/log/sysstat/sa$(date +%d)'
+alias sarnet='sar -n DEV -f /var/log/sysstat/sa$(date +%d)'
+alias sarall='sar -A -f /var/log/sysstat/sa$(date +%d)'
+
 # python venv start
 venvreset() {
   local reqfile="${1:-requirements.txt}"
