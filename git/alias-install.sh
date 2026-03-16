@@ -1,7 +1,0 @@
-git config --global alias.st 'status -s'
-git config --global alias.aadd 'add .'
-git config --global alias.acommit 'commit -am'
-git config --global alias.cleanup 'reset @ --hard'
-git config --global alias.cleanup '!git reset --hard && git clean -fd'
-git config --global alias.difflog '!f() { git log "$1"..HEAD --pretty=format:"%h %ad %s" --date=short -- "$2"; }; f'
-
