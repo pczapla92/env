@@ -1,6 +1,6 @@
 # About
 
-Dev env setup
+Dev env rc files setup
 
 # Usage
 
