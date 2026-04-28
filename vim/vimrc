@@ -1,5 +1,4 @@
 set nocompatible
-set nobackup
 " disable ex mode
 nnoremap Q <Nop>
 
